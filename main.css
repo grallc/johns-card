@@ -1,3 +1,26 @@
 .hidden {
   visibility: hidden;
 }
+
+.page-title {
+  margin-top: 50px;
+}
+
+.credit-card-type {
+  width: 2.5em;
+  height: auto;
+}
+
+.expiration-splitter {
+  margin-top: 8px;
+}
+
+#footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
