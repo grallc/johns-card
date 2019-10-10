@@ -17,11 +17,13 @@
   <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
     integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
     crossorigin="anonymous"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>
   <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
     integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
     crossorigin="anonymous"></script>
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="./index.js"></script>
 </head>
 
 <body>
@@ -46,7 +48,7 @@
       <p class="h5 mb-4">From</p>
       <div class="form-group">
         <div class="input-group">
-          <input type="text" name="cardNumber" placeholder="4978 **** **** ****" id="cardNumber" class="form-control"
+          <input type="text" name="cardNumber" placeholder="4978 **** **** ****" data-inputmask="'mask': '9999 9999 9999 9999'" id="cardNumber" class="form-control"
             required>
           <div class="input-group-append">
             <span class="input-group-text">
@@ -58,17 +60,17 @@
       </div>
       <div class="row">
         <div class="col">
-          <input type="text" class="form-control" placeholder="Full name">
+          <input type="text" class="form-control" placeholder="Full name" value="John Smith">
           <small class="text-muted">Full name as displayed on card</small>
         </div>
         <div class="row">
           <div class="col">
-            <input type="text" class="form-control" placeholder="12">
+            <input type="text" class="form-control" placeholder="12" value="12">
             <small class="text-muted">Month</small>
           </div>
           <span class="expiration-splitter">/</span>
           <div class="col">
-            <input type="text" class="form-control" placeholder="19">
+            <input type="text" class="form-control" placeholder="19" value="19">
             <small class="text-muted">Year</small>
           </div>
         </div>
@@ -77,39 +79,18 @@
       <p class="h5 mb-4">To</p>
       <div class="form-group">
         <div class="input-group">
-          <input type="text" name="cardNumber" placeholder="4978 **** **** ****" id="cardNumber" class="form-control"
+          <input type="text" name="email" placeholder="example@gmail.com" id="cardNumber" class="form-control" value="corentin.grall@gmail.com"
             required>
-          <div class="input-group-append">
-            <span class="input-group-text">
-              <img class="credit-card-type" src="assets/images/master-card.png" />
-            </span>
-          </div>
         </div>
-        <small class="text-muted">Credit card number</small>
-      </div>
-      <div class="row">
-        <div class="col">
-          <input type="text" class="form-control" placeholder="Full name">
-          <small class="text-muted">Full name as displayed on card</small>
-        </div>
-        <div class="row">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="12">
-            <small class="text-muted">Month</small>
-          </div>
-          <span class="expiration-splitter">/</span>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="19">
-            <small class="text-muted">Year</small>
-          </div>
-        </div>
+        <small class="text-muted">Email adress</small>
+
       </div>
 
       <hr class="mb-4">
       <p class="h5 mb-4">Amount</p>
       <div class="row">
         <div class="col">
-          <input type="text" class="form-control" placeholder="12">
+          <input type="text" class="form-control" placeholder="1200" value="1200">
           <small class="text-muted">Amount</small>
         </div>
         <div class="col">
