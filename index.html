@@ -29,11 +29,14 @@
 <body>
   <header class="header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">BankX</a>
+      <a class="navbar-brand" href="#">Pacific Standard</a>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <NavLink class="nav-link active" to="/audiences">Bank transfer</NavLink>
+            <a class="nav-link active">Bank transfer</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="check.html">Card Checker</a>
           </li>
         </ul>
       </div>
@@ -42,17 +45,21 @@
 
 
   <div class="container">
+
     <p class="h3 mb-4 page-title">Bank transfer</p>
+    <div class="alert alert-warning" role="alert">
+        Invalid credit card ! <a href=""><b>Check why</b></a>.
+      </div>
     <form>
       <hr class="mb-4">
       <p class="h5 mb-4">From</p>
       <div class="form-group">
         <div class="input-group">
-          <input type="text" name="cardNumber" placeholder="4978 **** **** ****" data-inputmask="'mask': '9999 9999 9999 9999'" id="cardNumber" class="form-control"
-            required>
+          <input type="text" name="cardNumber" placeholder="4978 **** **** ****"
+            data-inputmask="'mask': '9999 9999 9999 9999'" id="cardNumber" class="form-control" required>
           <div class="input-group-append">
             <span class="input-group-text">
-              <img class="credit-card-type" src="assets/images/master-card.png" />
+              <img id="credit-card-type" class="hidden" src="assets/images/master-card.png" />
             </span>
           </div>
         </div>
@@ -79,8 +86,8 @@
       <p class="h5 mb-4">To</p>
       <div class="form-group">
         <div class="input-group">
-          <input type="text" name="email" placeholder="example@gmail.com" id="cardNumber" class="form-control" value="corentin.grall@gmail.com"
-            required>
+          <input type="text" name="email" placeholder="example@gmail.com" id="cardNumber" class="form-control"
+            value="corentin.grall@gmail.com">
         </div>
         <small class="text-muted">Email adress</small>
 
@@ -100,9 +107,10 @@
             <option value="3">GBP</option>
           </select>
           <small class="text-muted">Currency</small>
-
         </div>
       </div>
+      <hr class="mb-4">
+      <button type="submit" class="btn btn-secondary btn-lg btn-block active">Submit</button>
     </form>
   </div>
 </body>

@@ -1,12 +1,12 @@
 .hidden {
-  visibility: hidden;
+  display: none;
 }
 
 .page-title {
   margin-top: 50px;
 }
 
-.credit-card-type {
+#credit-card-type {
   width: 2.5em;
   height: auto;
 }
@@ -23,4 +23,12 @@
   background-color: red;
   color: white;
   text-align: center;
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
 }
