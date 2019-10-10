@@ -23,7 +23,7 @@
     crossorigin="anonymous"></script>
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <script src="./index.js"></script>
+  <script src="./assets/js/index.js"></script>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
             <a class="nav-link" href="index.html">Bank transfer</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link active">Card Checker</a>
+            <a class="nav-link active">Card Checker</a>
           </li>
         </ul>
       </div>
@@ -47,9 +47,25 @@
   <div class="container">
 
     <p class="h3 mb-4 page-title">Why isn't my card working ?</p>
-    <div class="alert alert-warning" role="alert">
-        No credit card provided! Please make a <a href=""> <b>bank transfert</b></a> to check the card.
-      </div>
+    <p>Your credit card number is : <span id="number">4548646</span></p>
+    <div class="alert alert-warning" role="alert" id="no-card">
+      No credit card provided! Please make a <a href=""> <b>bank transfert</b></a> to check the card.
+    </div>
+
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Cras justo odio
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Dapibus ac facilisis in
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Morbi leo risus
+          <span class="badge badge-primary badge-pill">1</span>
+        </li>
+      </ul>
   </div>
 </body>
 

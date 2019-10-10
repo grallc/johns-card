@@ -23,7 +23,7 @@
     crossorigin="anonymous"></script>
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <script src="./index.js"></script>
+  <script src="./assets/js/index.js"></script>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
             <a class="nav-link active">Bank transfer</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="check.html">Card Checker</a>
+            <a class="nav-link" href="check.html">Card Checker</a>
           </li>
         </ul>
       </div>
@@ -45,12 +45,14 @@
 
 
   <div class="container">
-
     <p class="h3 mb-4 page-title">Bank transfer</p>
-    <div class="alert alert-warning" role="alert">
-        Invalid credit card ! <a href=""><b>Check why</b></a>.
+    <div class="alert alert-warning hidden" role="alert" id="transfer-error">
+      Invalid credit card ! <a id="check-link" href=""><b>Check why</b></a>.
+    </div>
+    <div class="alert alert-success hidden" role="alert" id="transfer-success">
+        Succesfully transferred the money ! <a id="check-link" href=""><b>More information</b></a>.
       </div>
-    <form>
+    <form id="transfer-form" action="#">
       <hr class="mb-4">
       <p class="h5 mb-4">From</p>
       <div class="form-group">
@@ -110,8 +112,8 @@
         </div>
       </div>
       <hr class="mb-4">
-      <button type="submit" class="btn btn-secondary btn-lg btn-block active">Submit</button>
     </form>
+    <button class="btn btn-secondary btn-lg btn-block active" id="submit">Submit</button>
   </div>
 </body>
 
