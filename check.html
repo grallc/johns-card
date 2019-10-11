@@ -23,6 +23,7 @@
     crossorigin="anonymous"></script>
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="./assets/js/check.js"></script>
   <script src="./assets/js/index.js"></script>
 </head>
 
@@ -46,13 +47,19 @@
   <div class="container">
     <p class="h3 mb-4 page-title">Is my Credit Card correct ?</p>
     <div class="alert alert-warning" role="alert" id="no-card">
-      No credit card provided! Please make a <a href=""> <b>bank transfert</b></a> to check the card.
+      No credit card provided! Please make a <a href="index.html"> <b>bank transfert</b></a> to check the card.
     </div>
     <div id="check-body" class="hidden">
-      <p>Your credit card number is : <span id="number">4548646</span></p>
+      <p>Your credit card number is : <span id="number"></span></p>
       <ul class="list-group" id="info-list">
       </ul>
-  </div>
+    </div>
+    <div class="alert alert-warning hidden" role="alert" id="check-failure">
+      Your credit card number is not correct :(
+    </div>
+    <div class="alert alert-success hidden" role="alert" id="check-success">
+      Your credit card number is correct !
+    </div>
   </div>
 </body>
 
