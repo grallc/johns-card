@@ -27,21 +27,22 @@ $(document).ready(function() {
     }
   });
 
-  $("#submit").on("click", function (e) {
-    const cardNumber = $("#cardNumber").val().replace(/\s/g, '');
+  $("#submit").on("click", function(e) {
+    const cardNumber = $("#cardNumber")
+      .val()
+      .replace(/\s/g, "");
     const check = checkCreditCard(cardNumber);
-    if(check.failure && check.failure.length > 0) {
-      $('#transfer-error').show();
-      $("#check-link-error").attr('href', `check.html?pin=${cardNumber}`);
-      $('#transfer-success').hide();
+    if (check.failure && check.failure.length > 0) {
+      $("#transfer-error").show();
+      $("#check-link-error").attr("href", `check.html?pin=${cardNumber}`);
+      $("#transfer-success").hide();
     } else {
-      $("#check-link-success").attr('href', `check.html?pin=${cardNumber}`);
-      $('#transfer-success').show();
-      $('#transfer-error').hide();
+      $("#check-link-success").attr("href", `check.html?pin=${cardNumber}`);
+      $("#transfer-success").show();
+      $("#transfer-error").hide();
     }
     e.preventDefault();
   });
-
 
   const path = window.location.pathname;
   const page = path.split("/").pop();
@@ -49,8 +50,17 @@ $(document).ready(function() {
     const urlParams = new URLSearchParams(window.location.search);
     const pinParam = urlParams.get("pin");
     if (pinParam != null) {
+      const check = checkCreditCard(pinParam);
       $("#no-card").hide();
       $("#check-body").show();
+
+      check.success.forEach(function(successMessage) {
+        $("#info-list").append("<li class='list-group-item d-flex justify-content-between align-items-center'>" + successMessage +  "<i class='fa fa-check' aria-hidden='true'></i></li>");
+      });
+
+      check.failure.forEach(function(failureMessage) {
+        $("#info-list").append("<li class='list-group-item d-flex justify-content-between align-items-center'>" + failureMessage +  "<i class='fa fa-times' aria-hidden='true'></i></li>");
+      });
     }
   }
 });
@@ -66,17 +76,21 @@ function checkCreditCard(creditCardNumber) {
   };
 
   if (creditCardNumber.length == 16) {
-    messages.success.push("Your credit card number is 16-numbers long");
+    messages.success.push("Your credit card number is 16-numbers long.");
   } else {
     messages.failure.push(
-      `Your credit card number is ${creditCardNumber.length}-numbers long`
+      `Your credit card number is ${creditCardNumber.length}-numbers long (Expected 16).`
     );
   }
 
   if (isNumeric(creditCardNumber)) {
-    messages.success.push("Your credit card only contains numerical characters");
+    messages.success.push(
+      "Your credit card only contains numerical characters"
+    );
   } else {
-    messages.failure.push(`Your credit card contains non-numerical characters`);
+    messages.failure.push(
+      `Your credit card contains non-numerical characters (Expected numerical only)`
+    );
   }
   return messages;
 }
