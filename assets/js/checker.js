@@ -5,7 +5,7 @@ function isNumeric(num) {
 function luhn(creditCardNumber) {
   let even = 0;
   let odd = 0;
-  for (let x = 15; x >= 0; x--) {
+  for (let x = creditCardNumber.length - 1; x >= 0; x--) {
       if (x % 2 == 0) {
           let newNumber = creditCardNumber.charAt(x) * 2;
           if (newNumber > 9) newNumber -= 9;
