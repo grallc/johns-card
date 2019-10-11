@@ -24,7 +24,7 @@
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <script src="./assets/js/checker.js"></script>
-  <script src="./assets/js/check.js"></script>
+  <script src="./assets/js/check-form.js"></script>
   <script src="./assets/js/index.js"></script>
 </head>
 
@@ -38,10 +38,10 @@
             <a class="nav-link" href="index.html">Bank transfer</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active">Card Checker</a>
+            <a class="nav-link" href="check.html">Card Checker</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="check-form.html">New Card Checker</a>
+            <a class="nav-link  active" href="">New Card Checker</a>
           </li>
         </ul>
       </div>
@@ -50,19 +50,54 @@
 
   <div class="container">
     <p class="h3 mb-4 page-title">Is my Credit Card correct ?</p>
-    <div class="alert alert-warning" role="alert" id="no-card">
-      No credit card provided! Please make a <a href="index.html"> <b>bank transfert</b></a> to check the card.
+    <div class="alert alert-warning hidden" role="alert" id="transfer-error">
+      Invalid credit card ! <a href="" data-toggle="modal" data-target="#exampleModal"><b>Check
+          why</b></a>.
     </div>
-    <div id="check-body" class="hidden">
-      <p>Your credit card number is : <span id="number"></span></p>
-      <ul class="list-group" id="info-list">
-      </ul>
+    <div class="alert alert-success hidden" role="alert" id="transfer-success">
+      Your credit card number is correct ! <a href="" data-toggle="modal" data-target="#exampleModal"><b>More information</b></a>.
     </div>
-    <div class="alert alert-warning hidden" role="alert" id="check-failure">
-      Your credit card number is not correct :(
-    </div>
-    <div class="alert alert-success hidden" role="alert" id="check-success">
-      Your credit card number is correct !
+    <form id="transfer-form" action="#">
+      <hr class="mb-4">
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" name="cardNumber" placeholder="4978 **** **** ****"
+            data-inputmask="'mask': '9999 9999 9999 9999'" id="cardNumber" class="form-control" required>
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <img id="credit-card-type" class="hidden" src="assets/images/master-card.png" />
+            </span>
+          </div>
+        </div>
+        <small class="text-muted">Credit card number</small>
+      </div>
+
+    </form>
+    <button class="btn btn-secondary btn-lg btn-block active" id="submit">Submit</button>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div id="check-body">
+            <p>Your credit card number is : <span id="number"></span></p>
+            <ul class="list-group" id="info-list">
+            </ul>
+          </div>
+          <div class="alert alert-warning hidden" role="alert" id="check-failure">
+            Your credit card number is not correct :(
+          </div>
+          <div class="alert alert-success hidden" role="alert" id="check-success">
+            Your credit card number is correct !
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
   </div>
 </body>
