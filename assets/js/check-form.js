@@ -7,19 +7,11 @@ $(document).ready(function() {
     const check = checkCreditCard(cardNumber);
 
     check.success.forEach(function(successMessage) {
-      $("#info-list").append(
-        "<li class='list-group-item d-flex justify-content-between align-items-center'>" +
-          successMessage +
-          "<i class='fa fa-check' aria-hidden='true'></i></li>"
-      );
+      $("#info-list").append(successMessage);
     });
 
     check.failure.forEach(function(failureMessage) {
-      $("#info-list").append(
-        "<li class='list-group-item d-flex justify-content-between align-items-center'>" +
-          failureMessage +
-          "<i class='fa fa-times' aria-hidden='true'></i></li>"
-      );
+      $("#info-list").append(failureMessage);
     });
 
     $("#number").text(cardNumber);
