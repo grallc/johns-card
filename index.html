@@ -31,26 +31,25 @@
 <body>
   <header class="header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Pacific Standard</a>
+      <a class="navbar-brand" href="index.html">Pacific Standard</a>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active">Bank transfer</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="check-form.html">Card Checker</a>
+            <a class="nav-link  active" href="">Card Checker</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="flowchart.html">Flowchart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="transfer.html">Bank transfer</a>
           </li>
         </ul>
       </div>
     </nav>
   </header>
 
-
   <div class="container">
-    <p class="h3 mb-4 page-title">Bank transfer</p>
+    <p class="h3 mb-4 page-title">Is my Credit Card correct ?</p>
     <div class="alert alert-warning hidden" role="alert" id="transfer-error">
       Invalid credit card ! <a href="" data-toggle="modal" data-target="#check-cc-modal"><b>Check
           why</b></a>.
@@ -58,10 +57,8 @@
     <div class="alert alert-success hidden" role="alert" id="transfer-success">
       Your credit card number is correct ! <a href="" data-toggle="modal" data-target="#check-cc-modal"><b>More information</b></a>.
     </div>
-
     <form id="transfer-form" action="#">
       <hr class="mb-4">
-      <p class="h5 mb-4">From</p>
       <div class="form-group">
         <div class="input-group">
           <input type="text" name="cardNumber" placeholder="4978 **** **** ****"
@@ -74,60 +71,12 @@
         </div>
         <small class="text-muted">Credit card number</small>
       </div>
-      <div class="row">
-        <div class="col">
-          <input type="text" class="form-control" placeholder="Full name" value="John Smith">
-          <small class="text-muted">Full name as displayed on card</small>
-        </div>
-        <div class="row">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="12" value="12">
-            <small class="text-muted">Month</small>
-          </div>
-          <span class="expiration-splitter">/</span>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="19" value="19">
-            <small class="text-muted">Year</small>
-          </div>
-        </div>
-        <div class="col col-lg-2">
-          <input type="text" class="form-control" placeholder="Security code" value="584">
-          <small class="text-muted">Security code</small>
-        </div>
-      </div>
-      <hr class="mb-4">
-      <p class="h5 mb-4">To</p>
-      <div class="form-group">
-        <div class="input-group">
-          <input type="text" name="email" placeholder="example@gmail.com" id="cardNumber" class="form-control"
-            value="corentin.grall@gmail.com">
-        </div>
-        <small class="text-muted">Email adress</small>
 
-      </div>
-
-      <hr class="mb-4">
-      <p class="h5 mb-4">Amount</p>
-      <div class="row">
-        <div class="col">
-          <input type="text" class="form-control" placeholder="1200" value="1200">
-          <small class="text-muted">Amount</small>
-        </div>
-        <div class="col">
-          <select class="custom-select">
-            <option value="1">USD</option>
-            <option value="2">EUR</option>
-            <option value="3">GBP</option>
-          </select>
-          <small class="text-muted">Currency</small>
-        </div>
-      </div>
-      <hr class="mb-4">
     </form>
     <button class="btn btn-secondary btn-lg btn-block active" id="submit">Submit</button>
   </div>
 
-<!-- Modal -->
+  <!-- Modal -->
   <div class="modal fade bd-example-modal-lg" id="check-cc-modal" tabindex="-1" role="dialog" aria-labelledby="check-cc-modalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
