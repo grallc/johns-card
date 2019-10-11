@@ -45,14 +45,15 @@
 
 
   <div class="container">
-
     <p class="h3 mb-4 page-title">Why isn't my card working ?</p>
-    <p>Your credit card number is : <span id="number">4548646</span></p>
     <div class="alert alert-warning" role="alert" id="no-card">
       No credit card provided! Please make a <a href=""> <b>bank transfert</b></a> to check the card.
     </div>
+    <div id="check-body" class="hidden">
+      <p>Your credit card number is : <span id="number">4548646</span></p>
 
-    <ul class="list-group">
+
+      <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center">
           Cras justo odio
           <i class="fa fa-check" aria-hidden="true"></i>
@@ -66,6 +67,7 @@
           <span class="badge badge-primary badge-pill">1</span>
         </li>
       </ul>
+  </div>
   </div>
 </body>
 
