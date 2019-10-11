@@ -1,5 +1,6 @@
 $(document).ready(function() {
   $("#submit").on("click", function() {
+    $("#info-list").html('');  
     const cardNumber = $("#cardNumber")
       .val()
       .replace(/\s/g, "");
@@ -30,7 +31,6 @@ $(document).ready(function() {
       $("#check-failure").hide();
       $("#check-success").show();
     }
-    console.log(cardNumber);
   });
 
 });
