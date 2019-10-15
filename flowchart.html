@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="./assets/css/main.css">
   <link rel="stylesheet" href="./assets/css/libs/material-icons.css">
   <link rel="stylesheet" href="./assets/css/libs/bootstrap.min.css">
+  <script src="./assets/js/libs/jquery.slim.min.js"></script>
+  <script src="./assets/js/flowchart.js"></script>
 </head>
 
 <body>
@@ -33,7 +35,14 @@
 
   <div class="container">
     <p class="h3 mb-4 page-title">Flowchart</p>
-    <img src="assets/images/flowchart.png">
+    <nav class="nav nav-pills nav-fill">
+      <a class="nav-item nav-link active" href="#" id="large-button">Large</a>
+      <a class="nav-item nav-link" href="#" id="compact-button">Compact</a>
+    </nav>
+
+    <div class="container">
+      <img id="flowchart-image" src="assets/images/flowchart-large.png">
+    </div>
   </div>
 </body>
 
