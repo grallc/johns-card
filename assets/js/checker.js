@@ -10,38 +10,28 @@ function luhn(creditCardNumber) {
       odd += parseInt(creditCardNumber.charAt(x));
     }
   }
-  return {
-    even,
-    odd,
-    total: even+odd,
-    correct: (even + odd) % 10 == 0
-  };
+  return {even, odd, total: even+odd, correct: (even + odd) % 10 == 0};
 }
 
 function checkCreditCard(creditCardNumber) {
-  let messages = {
-    success: [],
-    failure: []
-  };
+  let messages = { success: [], failure: [] };
 
-  if (isNumeric(creditCardNumber)) {
+  if (isNumeric(creditCardNumber))
     messages.success.push(generateMessage("Your credit card only contains numerical characters <small>Expected numericals only</small>", true));
-  } else {
+  else
     messages.failure.push(generateMessage(`Your credit card contains non-numerical characters`));
-  }
+  
 
-  if (creditCardNumber.length >= 13 && creditCardNumber.length <= 16) {
+  if (creditCardNumber.length >= 13 && creditCardNumber.length <= 16)
     messages.success.push(generateMessage(`Your credit card number is ${creditCardNumber.length}-numbers long <small>Expected between 13 and 16</small>.`, true));
-  } else {
+  else 
     messages.failure.push(generateMessage(`Your credit card number is ${creditCardNumber.length}-numbers long <small>Expected between 13 and 16</small>.`));
-  }
 
   const luhnCheck = luhn(creditCardNumber);
-  if (creditCardNumber.length != 16 || !luhnCheck.correct) {
+  if (creditCardNumber.length != 16 || !luhnCheck.correct) 
     messages.failure.push(generateMessage(`Your credit card number does not fill the Luhn Algorithm <small>even (${luhnCheck.even}) + odd (${luhnCheck.odd}) / 10 = ${luhnCheck.total / 10}</small>`));
-  } else {
+  else
     messages.success.push(generateMessage("Your credit card number fills the Luhn Algorithm", true));
-  }
   return messages;
 }
 
