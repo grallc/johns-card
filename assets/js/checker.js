@@ -37,13 +37,13 @@ function checkCreditCard(creditCardNumber) {
       );
   }
 
-  if (creditCardNumber.length == 16) {
+  if (creditCardNumber.length >= 13 && creditCardNumber.length <= 16) {
       messages.success.push(
-          generateMessage("Your credit card number is 16-numbers long.", true)
+          generateMessage(`Your credit card number is ${creditCardNumber.length}-numbers long.`, true)
       );
   } else {
       messages.failure.push(
-          generateMessage(`Your credit card number is ${creditCardNumber.length}-numbers long (Expected 16).`)
+          generateMessage(`Your credit card number is ${creditCardNumber.length}-numbers long (Expected between 13 and 16).`)
       );
   }
 

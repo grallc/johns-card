@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  $("#checker-form").on("submit", function() {
+  $("#submit").on("click", function(e) {
+    e.preventDefault();
     $("#info-list").html('');  
     const cardNumber = $("#cardNumber")
       .val()

@@ -19,23 +19,4 @@ $(document).ready(function() {
       $("#credit-card-type").hide();
     }
   });
-
-  $("#submit").on("click", function(e) {
-    const cardNumber = $("#cardNumber")
-      .val()
-      .replace(/\s/g, "");
-    const check = checkCreditCard(cardNumber);
-    if (check.failure && check.failure.length > 0) {
-      $("#transfer-error").show();
-      $("#check-link-error").attr("href", `check.html?pin=${cardNumber}`);
-      $("#transfer-success").hide();
-    } else {
-      $("#check-link-success").attr("href", `check.html?pin=${cardNumber}`);
-      $("#transfer-success").show();
-      $("#transfer-error").hide();
-    }
-    e.preventDefault();
-  });
-
-
 });
