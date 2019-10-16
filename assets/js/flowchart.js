@@ -8,6 +8,6 @@ $(document).ready(function() {
   $("#compact-button").on("click", function() {
     $("#flowchart-image").attr("src", "assets/images/flowchart-compact.png");
     $(this).addClass("active");
-    $("#large-button").removeClass("active");  
+    $("#large-button").removeClass("active");
   });
 });

@@ -1,75 +1,64 @@
-function isNumeric(num) {
-  return !isNaN(num);
-}
-
 function luhn(creditCardNumber) {
   let even = 0;
   let odd = 0;
   for (let x = creditCardNumber.length - 1; x >= 0; x--) {
-      if (x % 2 == 0) {
-          let newNumber = creditCardNumber.charAt(x) * 2;
-          if (newNumber > 9) newNumber -= 9;
-          even += newNumber;
-      } else {
-          odd += parseInt(creditCardNumber.charAt(x));
-      }
+    if (x % 2 == 0) {
+      let newNumber = creditCardNumber.charAt(x) * 2;
+      if (newNumber > 9) newNumber -= 9;
+      even += newNumber;
+    } else {
+      odd += parseInt(creditCardNumber.charAt(x));
+    }
   }
   return {
-      correct: (even + odd) % 10 == 0
+    even,
+    odd,
+    total: even+odd,
+    correct: (even + odd) % 10 == 0
   };
 }
 
 function checkCreditCard(creditCardNumber) {
   let messages = {
-      success: [],
-      failure: []
+    success: [],
+    failure: []
   };
 
   if (isNumeric(creditCardNumber)) {
-      messages.success.push(
-          generateMessage("Your credit card only contains numerical characters", true)
-      );
+    messages.success.push(generateMessage("Your credit card only contains numerical characters <small>Expected numericals only</small>", true));
   } else {
-      messages.failure.push(
-          generateMessage(
-              `Your credit card contains non-numerical characters (Expected numerical only)`
-          )
-      );
+    messages.failure.push(generateMessage(`Your credit card contains non-numerical characters`));
   }
 
   if (creditCardNumber.length >= 13 && creditCardNumber.length <= 16) {
-      messages.success.push(
-          generateMessage(`Your credit card number is ${creditCardNumber.length}-numbers long.`, true)
-      );
+    messages.success.push(generateMessage(`Your credit card number is ${creditCardNumber.length}-numbers long <small>Expected between 13 and 16</small>.`, true));
   } else {
-      messages.failure.push(
-          generateMessage(`Your credit card number is ${creditCardNumber.length}-numbers long (Expected between 13 and 16).`)
-      );
+    messages.failure.push(generateMessage(`Your credit card number is ${creditCardNumber.length}-numbers long <small>Expected between 13 and 16</small>.`));
   }
 
-  if (creditCardNumber.length != 16 || !luhn(creditCardNumber).correct) {
-      messages.failure.push(
-          generateMessage("Your credit card number does not fill the Luhn Algorithm")
-      );
+  const luhnCheck = luhn(creditCardNumber);
+  if (creditCardNumber.length != 16 || !luhnCheck.correct) {
+    messages.failure.push(generateMessage(`Your credit card number does not fill the Luhn Algorithm <small>even (${luhnCheck.even}) + odd (${luhnCheck.odd}) / 10 = ${luhnCheck.total / 10}</small>`));
   } else {
-      messages.success.push(
-          generateMessage("Your credit card number fills the Luhn Algorithm", true)
-      );
+    messages.success.push(generateMessage("Your credit card number fills the Luhn Algorithm", true));
   }
-
   return messages;
+}
+
+function isNumeric(num) {
+  return !isNaN(num);
 }
 
 function generateMessage(message, isValid) {
   if (isValid)
-      return (
-          "<li class='list-group-item d-flex justify-content-between align-items-center'>" +
-          message +
-          "<i class='fa fa-check' aria-hidden='true'></i></li>"
-      );
-  return (
+    return (
       "<li class='list-group-item d-flex justify-content-between align-items-center'>" +
       message +
-      "<i class='fa fa-times' aria-hidden='true'></i></li>"
+      "<i class='fa fa-check' aria-hidden='true'></i></li>"
+    );
+  return (
+    "<li class='list-group-item d-flex justify-content-between align-items-center'>" +
+    message +
+    "<i class='fa fa-times' aria-hidden='true'></i></li>"
   );
 }
