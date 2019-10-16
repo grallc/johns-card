@@ -6,10 +6,8 @@ function luhn(creditCardNumber) {
       let newNumber = creditCardNumber.charAt(x) * 2;
       if (newNumber > 9) newNumber = newNumber - 9;
       even += newNumber;
-      console.log("even", even);
     } else {
       odd += parseInt(creditCardNumber.charAt(x));
-      console.log("odd", odd);
     }
   }
   return { even, odd, total: even + odd, correct: (even + odd) % 10 === 0 };
