@@ -1,14 +1,16 @@
 function luhn(creditCardNumber) {
   let even = 0;
   let odd = 0;
+  let counter = 1;
   for (let x = creditCardNumber.length - 1; x >= 0; x--) {
-    if ((16 - x) % 2 == 0) {
+    if (counter % 2 == 0) {
       let newNumber = creditCardNumber.charAt(x) * 2;
       if (newNumber > 9) newNumber = newNumber - 9;
       even += newNumber;
     } else {
       odd += parseInt(creditCardNumber.charAt(x));
     }
+    counter++
   }
   return { even, odd, total: even + odd, correct: (even + odd) % 10 === 0 };
 }
