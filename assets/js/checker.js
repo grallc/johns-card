@@ -5,7 +5,7 @@ function luhn(creditCardNumber) {
   for (let x = creditCardNumber.length - 1; x >= 0; x--) {
     if (counter % 2 == 0) {
       let newNumber = creditCardNumber.charAt(x) * 2;
-      if (newNumber > 9) newNumber = newNumber - 9;
+      if (newNumber > 9)   newNumber = newNumber - 9;
       even += newNumber;
     } else {
       odd += parseInt(creditCardNumber.charAt(x));

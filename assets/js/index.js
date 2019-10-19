@@ -17,6 +17,5 @@ $(document).ready(function () {
     } else {
       $('#credit-card-type').addClass("hidden");
     }
-    console.log(value.charAt(0))
   })
 })
